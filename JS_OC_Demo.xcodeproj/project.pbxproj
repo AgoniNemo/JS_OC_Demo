@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BA121E9C1DE9769900A45155 /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA121E9B1DE9769900A45155 /* TestViewController.m */; };
+		BA121EA11DE9994300A45155 /* ManObject.m in Sources */ = {isa = PBXBuildFile; fileRef = BA121EA01DE9994300A45155 /* ManObject.m */; };
+		BA121EA41DE9B9F000A45155 /* ColorView.m in Sources */ = {isa = PBXBuildFile; fileRef = BA121EA31DE9B9F000A45155 /* ColorView.m */; };
 		BA14080A1DE5B2780037B052 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1408091DE5B2780037B052 /* main.m */; };
 		BA14080D1DE5B2780037B052 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BA14080C1DE5B2780037B052 /* AppDelegate.m */; };
 		BA1408101DE5B2780037B052 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA14080F1DE5B2780037B052 /* ViewController.m */; };
@@ -15,6 +18,7 @@
 		BA1408181DE5B2780037B052 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA1408161DE5B2780037B052 /* LaunchScreen.storyboard */; };
 		BA1408231DE5B2780037B052 /* JS_OC_DemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1408221DE5B2780037B052 /* JS_OC_DemoTests.m */; };
 		BA14082E1DE5B2780037B052 /* JS_OC_DemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = BA14082D1DE5B2780037B052 /* JS_OC_DemoUITests.m */; };
+		BA14083C1DE5B2F40037B052 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = BA14083B1DE5B2F40037B052 /* index.html */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +39,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BA121E9A1DE9769900A45155 /* TestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
+		BA121E9B1DE9769900A45155 /* TestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
+		BA121E9E1DE9990300A45155 /* JSExportDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSExportDelegate.h; sourceTree = "<group>"; };
+		BA121E9F1DE9994300A45155 /* ManObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManObject.h; sourceTree = "<group>"; };
+		BA121EA01DE9994300A45155 /* ManObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManObject.m; sourceTree = "<group>"; };
+		BA121EA21DE9B9F000A45155 /* ColorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorView.h; sourceTree = "<group>"; };
+		BA121EA31DE9B9F000A45155 /* ColorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorView.m; sourceTree = "<group>"; };
 		BA1408051DE5B2780037B052 /* JS_OC_Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JS_OC_Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA1408091DE5B2780037B052 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		BA14080B1DE5B2780037B052 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -51,6 +62,7 @@
 		BA1408291DE5B2780037B052 /* JS_OC_DemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JS_OC_DemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA14082D1DE5B2780037B052 /* JS_OC_DemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JS_OC_DemoUITests.m; sourceTree = "<group>"; };
 		BA14082F1DE5B2780037B052 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BA14083B1DE5B2F40037B052 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,10 +113,18 @@
 		BA1408071DE5B2780037B052 /* JS_OC_Demo */ = {
 			isa = PBXGroup;
 			children = (
+				BA14083B1DE5B2F40037B052 /* index.html */,
 				BA14080B1DE5B2780037B052 /* AppDelegate.h */,
 				BA14080C1DE5B2780037B052 /* AppDelegate.m */,
 				BA14080E1DE5B2780037B052 /* ViewController.h */,
 				BA14080F1DE5B2780037B052 /* ViewController.m */,
+				BA121EA21DE9B9F000A45155 /* ColorView.h */,
+				BA121EA31DE9B9F000A45155 /* ColorView.m */,
+				BA121E9A1DE9769900A45155 /* TestViewController.h */,
+				BA121E9B1DE9769900A45155 /* TestViewController.m */,
+				BA121E9E1DE9990300A45155 /* JSExportDelegate.h */,
+				BA121E9F1DE9994300A45155 /* ManObject.h */,
+				BA121EA01DE9994300A45155 /* ManObject.m */,
 				BA1408111DE5B2780037B052 /* Main.storyboard */,
 				BA1408141DE5B2780037B052 /* Assets.xcassets */,
 				BA1408161DE5B2780037B052 /* LaunchScreen.storyboard */,
@@ -247,6 +267,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BA1408181DE5B2780037B052 /* LaunchScreen.storyboard in Resources */,
+				BA14083C1DE5B2F40037B052 /* index.html in Resources */,
 				BA1408151DE5B2780037B052 /* Assets.xcassets in Resources */,
 				BA1408131DE5B2780037B052 /* Main.storyboard in Resources */,
 			);
@@ -273,8 +294,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA121EA11DE9994300A45155 /* ManObject.m in Sources */,
 				BA1408101DE5B2780037B052 /* ViewController.m in Sources */,
+				BA121EA41DE9B9F000A45155 /* ColorView.m in Sources */,
 				BA14080D1DE5B2780037B052 /* AppDelegate.m in Sources */,
+				BA121E9C1DE9769900A45155 /* TestViewController.m in Sources */,
 				BA14080A1DE5B2780037B052 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -507,6 +531,7 @@
 				BA1408341DE5B2780037B052 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BA1408351DE5B2780037B052 /* Build configuration list for PBXNativeTarget "JS_OC_DemoTests" */ = {
 			isa = XCConfigurationList;
@@ -515,6 +540,7 @@
 				BA1408371DE5B2780037B052 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BA1408381DE5B2780037B052 /* Build configuration list for PBXNativeTarget "JS_OC_DemoUITests" */ = {
 			isa = XCConfigurationList;
@@ -523,6 +549,7 @@
 				BA14083A1DE5B2780037B052 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

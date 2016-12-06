@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+            <meta http-equiv="x-ua-compatible" content="ie=edge">
+                <title>得分趋势列表</title>
+                <meta name="description" content="">
+<!--                    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">-->
+                    <meta name="viewport" content="width=device-width, initial-scale=1">
+                        <link rel="shortcut icon" href="/MSP/favicon.ico" type="image/x-icon" />
+                        <link rel="stylesheet" href="/MSP/Content/app/css/main.css">
+    </head>
+    <body>
+        <div class="list-box">
+            <ul class="list-score">
+                <li>
+                    <a href=" " class="list-link">
+                        <span>全国总体得分分析</span>
+                        <span class="sm fz-sm"></span>
+                    </a >
+                </li>
+                <li>
+                    <a href="/MSP/APP/ReportPresent/Report?projectId=18&token=qg#1" class="list-link">
+                        <span>区域得分分析</span>
+                        <span class="sm fz-sm"></span>
+                    </a >
+                </li>
+                <li>
+                    <a href="/MSP/APP/ReportPresent/Report?projectId=18&token=qg#2" class="list-link">
+                        <span>大项得分分析</span>
+                        <span class="sm fz-sm"></span>
+                    </a >
+                </li>
+            </ul>
+        </div>
+        
+        <script src="/MSP/Scripts/app/vendor/jquery-1.12.0.min.js"></script>
+        <script src="/MSP/Scripts/app/plugins.js"></script>
+        <script src="/MSP/Scripts/app/main.js"></script>
+        <script>
+            $(function () {
+              $('body').on('click', 'a.list-link', function () {
+                           NielsenNative.open($(this).attr('href'));
+                           return false;
+                           });
+              });
+            </script>
+    </body>
+</html>
