@@ -95,10 +95,9 @@
     
     NSString *jsToGetHTMLSource = @"document.documentElement.innerHTML";
     
+    NSString *allHtml = [webView stringByEvaluatingJavaScriptFromString:jsToGetHTMLSource];
     
-    NSString *AllHtml = [webView stringByEvaluatingJavaScriptFromString:jsToGetHTMLSource];
-    
-    NSLog(@"%@",AllHtml);
+    NSLog(@"%@",allHtml);
     
 }
 
