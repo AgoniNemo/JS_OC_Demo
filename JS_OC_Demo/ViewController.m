@@ -18,10 +18,23 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-
     [self createWebView];
     
+//    [self createWebViewForUrl:@"https://www.baidu.com/"];
 }
+
+-(void)createWebViewForUrl:(NSString *)url{
+
+    UIWebView *webView = [[UIWebView alloc] initWithFrame:self.view.bounds];
+    webView.delegate = self;
+    NSURL *rul = [NSURL URLWithString:url];
+    NSURLRequest *request = [NSURLRequest requestWithURL:rul];
+    
+    [webView loadRequest:request];
+    [self.view addSubview:webView];
+
+}
+
 -(void)createWebView{
 
     UIWebView *webView = [[UIWebView alloc] initWithFrame:self.view.bounds];
@@ -40,15 +53,6 @@
     /**
    NSString *jsString = @"<script>var lis = document.getElementsByClassName(\"list-link\");for (var i = 0; i < lis.length; i++) {lis[i].addEventListener('click', function(){alert(this.innerHTML);});}</script>";
     */
-    /**
-        放大网页，没有用
-        NSString *injectionJSString = @"var script = document.createElement('meta');"
-        "script.name = 'viewport';"
-        "script.content=\"width=device-width, initial-scale=1.0,maximum-scale=1.0, minimum-scale=1.0, user-scalable=no\";"
-        "document.getElementsByTagName('head')[0].appendChild(script);";
-        [webView stringByEvaluatingJavaScriptFromString:injectionJSString];
-    */
-    
     
     NSString *jsToGetHTMLSource = @"document.documentElement.innerHTML";
     
@@ -56,27 +60,90 @@
     
     NSLog(@"%@",allHtml);
     
-    [self removeWithWebView:webView];
+    [self addScriptForWebView:webView];
     
 }
--(void)removeWithWebView:(UIWebView *)webView{
 
-    NSString *jsString =@"function removeClick(){\
-    var lis = document.getElementsByClassName(\"alert\");\
-    for(var i= 0;i<lis.length;i++){\
-    var  list = lis[i];\
-    var  string = list.href+\".myweb:click:\" + i;\
-    list.href = string;\
-    lis[i].onclick = function(){\
-    }\
-    };\
-    };";
+-(void)addScriptForWebView:(UIWebView *)webView{
+
+    NSString *injectionJSString = @"var s = document.createElement('script');"
+    "s.name = 'scriptAction';"
+    "s.setAttribute('type', 'text/javascript');"
+    "s.onload = function() {"
+    "var lis = document.getElementsByClassName(\"list-link\");"
+    "for (var i = 0; i < lis.length; i++) {"
+    "lis[i].addEventListener('click', function(){"
+    "alert(this.innerHTML);"
+    "});"
+    "}"
+    "};";
+    
+    [webView stringByEvaluatingJavaScriptFromString:injectionJSString];
+    
+    [webView stringByEvaluatingJavaScriptFromString:@"document.getElementsByTagName('head')[0].appendChild(s);"];
+
+}
+
+-(void)addjsForWebView:(UIWebView *)webView{
+
+    //如果是加载的URL,可以通过WebView的在webViewDidFinishLoad的加载完成的代理方法中,通过stringByEvaluatingJavaScriptFromString方法来动态添加js代码：
+    NSString *injectionJSString = @"var script = document.createElement('meta');"
+    "script.name = 'viewport';"
+    "script.content=\"width=device-width, initial-scale=1.0,maximum-scale=1.0, minimum-scale=1.0, user-scalable=no\";"
+    "document.getElementsByTagName('head')[0].appendChild(script);";
+    
+    [webView stringByEvaluatingJavaScriptFromString:injectionJSString];
+    
+    //标签里的scale 值就是页面的初始化页面大小< initial-scale >和可伸缩放大最大< maximum-scale >和最小< minimum-scale >的的倍数。如果还有别的需求可自行设置,如果都为1表示初始化的时候显示为原来大小,可缩放的大小都为原来的大小<即不可缩放>。
+
+}
+-(void)addLocaljscssfileForWebView:(UIWebView *)webView{
+
+    NSString *jsString =@"function loadjscssfile(filename, filetype){\
+    //如果文件类型为 .js ,则创建 script 标签，并设置相应属性\
+        if (filetype==\"js\"){\
+            var fileref=document.createElement('script');\
+            fileref.setAttribute(\"type\",\"text/javascript\");\
+            fileref.setAttribute(\"src\", filename);\
+        }\
+        //如果文件类型为 .css ,则创建 script 标签，并设置相应属性\
+        else if (filetype==\"css\"){\
+            var fileref=document.createElement(\"link\");\
+            fileref.setAttribute(\"rel\", \"stylesheet\");\
+            fileref.setAttribute(\"type\", \"text/css\");\
+            fileref.setAttribute(\"href\", filename);\
+        } \
+        if (typeof fileref!=\"undefined\")\
+            document.getElementsByTagName(\"head\")[0].appendChild(fileref);\
+    }";
     
     [webView stringByEvaluatingJavaScriptFromString:jsString];//注入js方法
     
-    [webView stringByEvaluatingJavaScriptFromString:@"removeClick()"];
+    [webView stringByEvaluatingJavaScriptFromString:@"loadjscssfile(\"myscript.js\", \"js\");"];
 
 }
+
+-(void)removeWithWebView:(UIWebView *)webView{
+
+    NSString *jsString =@"function removejscssfile(filename, filetype){\
+    //判断文件类型\
+    var targetelement=(filetype==\"js\")? \"script\" : (filetype==\"css\")? \"link\" : \"none\";\
+    //判断文件名\
+    var targetattr=(filetype==\"js\")? \"src\" : (filetype==\"css\")? \"href\" : \"none\";\
+    var allsuspects=document.getElementsByTagName(targetelement);\
+    //遍历元素， 并删除匹配的元素\
+    for (var i=allsuspects.length; i>=0; i--){\
+        if (allsuspects[i] && allsuspects[i].getAttribute(targetattr)!=null && allsuspects[i].getAttribute(targetattr).indexOf(filename)!=-1)\
+            allsuspects[i].parentNode.removeChild(allsuspects[i]);\
+    }\
+    }";
+    
+    [webView stringByEvaluatingJavaScriptFromString:jsString];//注入js方法
+    
+    [webView stringByEvaluatingJavaScriptFromString:@"removejscssfile(\"somescript.js\", \"js\");"];
+    
+}
+
 -(void)addClickActionForWebView:(UIWebView *)webView{
 
     NSString *jsString =@"function addOnlick(){\

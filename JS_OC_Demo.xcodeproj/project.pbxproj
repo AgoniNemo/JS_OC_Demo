@@ -19,6 +19,7 @@
 		BA1408231DE5B2780037B052 /* JS_OC_DemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1408221DE5B2780037B052 /* JS_OC_DemoTests.m */; };
 		BA14082E1DE5B2780037B052 /* JS_OC_DemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = BA14082D1DE5B2780037B052 /* JS_OC_DemoUITests.m */; };
 		BA14083C1DE5B2F40037B052 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = BA14083B1DE5B2F40037B052 /* index.html */; };
+		BA7519341DF7F79D0034A257 /* somescript.js in Resources */ = {isa = PBXBuildFile; fileRef = BA7519331DF7F79D0034A257 /* somescript.js */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		BA14082D1DE5B2780037B052 /* JS_OC_DemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JS_OC_DemoUITests.m; sourceTree = "<group>"; };
 		BA14082F1DE5B2780037B052 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BA14083B1DE5B2F40037B052 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
+		BA7519331DF7F79D0034A257 /* somescript.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = somescript.js; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				BA14083B1DE5B2F40037B052 /* index.html */,
+				BA7519331DF7F79D0034A257 /* somescript.js */,
 				BA14080B1DE5B2780037B052 /* AppDelegate.h */,
 				BA14080C1DE5B2780037B052 /* AppDelegate.m */,
 				BA14080E1DE5B2780037B052 /* ViewController.h */,
@@ -268,6 +271,7 @@
 			files = (
 				BA1408181DE5B2780037B052 /* LaunchScreen.storyboard in Resources */,
 				BA14083C1DE5B2F40037B052 /* index.html in Resources */,
+				BA7519341DF7F79D0034A257 /* somescript.js in Resources */,
 				BA1408151DE5B2780037B052 /* Assets.xcassets in Resources */,
 				BA1408131DE5B2780037B052 /* Main.storyboard in Resources */,
 			);
