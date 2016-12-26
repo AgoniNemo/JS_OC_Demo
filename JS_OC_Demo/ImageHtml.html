@@ -19,12 +19,16 @@
               
               $('.news-container img').each(function () {
                                             $(this).attr('data-link',$(this).attr('src'));
+                                            $(this).on('click',function () {
+                                                       alert($(this).attr('src'));
+                                                       });
+                                            
                                             });
               
               $('.news-container img').error(function (evt) {
                                              var img = this;
                                              //$(this).attr('src', '/MSP/Images/nopic.jpg');
-                                             //$(img).parent().append('<img src="/MSP/Images/nopic.jpg" style="height:220px;" />');
+                                             //$(img).parent().append('< img src="/MSP/Images/nopic.jpg" style="height:220px;" />');
                                              $(img).attr('data-link', $(img).attr('src')).css({ height: '220px', width: 'auto' });
                                              $(img).attr('src', '/MSP/Images/nopic.jpg');
                                              img.onerror = null; //控制不要一直跳动
@@ -58,14 +62,6 @@
                                       });
               });
             </script>
-        
-        
-        <script>
-            
-            alert("2222");
-            
-            </script>
-        
         <style>
             img {
                 max-width: 100%; /*图片自适应宽度*/
@@ -82,8 +78,15 @@
             </div>
             
             <div class="news-container">
-                <p><img src="http://139.224.164.218/MSP/Upload/News/CN/2016-12-26-08edea9e59-38e0-4456-be08-22c1c2d4d9d8.jpg" _src="http://139.224.164.218/MSP/Upload/News/CN/2016-12-26-08edea9e59-38e0-4456-be08-22c1c2d4d9d8.jpg"/></p><p><img src="http://139.224.164.218/MSP/Upload/News/CN/2016-12-26-08f9c193bc-0465-4706-8b8d-678fd2fb1578.jpg" _src="http://139.224.164.218/MSP/Upload/News/CN/2016-12-26-08f9c193bc-0465-4706-8b8d-678fd2fb1578.jpg"/></p><p><img src="http://139.224.164.218/MSP/Upload/News/CN/2016-12-26-08cc6f283a-5c24-471b-97e9-c871358a266d.jpg" _src="http://139.224.164.218/MSP/Upload/News/CN/2016-12-26-08cc6f283a-5c24-471b-97e9-c871358a266d.jpg"/></p><p><img src="http://139.224.164.218/MSP/Upload/News/CN/2016-12-26-08a8200769-c2ca-48a2-b481-c1867ff6043f.jpg" _src="http://139.224.164.218/MSP/Upload/News/CN/2016-12-26-08a8200769-c2ca-48a2-b481-c1867ff6043f.jpg"/></p><p><img src="http://139.224.164.218/MSP/Upload/News/CN/2016-12-26-082e7a5c29-c8a0-4fdb-bcc9-f2c01da32dae.jpg" _src="http://139.224.164.218/MSP/Upload/News/CN/2016-12-26-082e7a5c29-c8a0-4fdb-bcc9-f2c01da32dae.jpg"/></p><p><img src="http://139.224.164.218/MSP/Upload/News/CN/2016-12-26-08718e06e5-a4b3-46fd-a0e4-397278b02ec5.jpg" _src="http://139.224.164.218/MSP/Upload/News/CN/2016-12-26-08718e06e5-a4b3-46fd-a0e4-397278b02ec5.jpg"/></p><p><img src="http://139.224.164.218/MSP/Upload/News/CN/2016-12-26-08630ccaf4-1545-4908-a471-af868ddb5fff.jpg" _src="http://139.224.164.218/MSP/Upload/News/CN/2016-12-26-08630ccaf4-1545-4908-a471-af868ddb5fff.jpg"/></p><p><img src="http://139.224.164.218/MSP/Upload/News/CN/2016-12-26-084b339fcb-4695-497c-ba33-1ad479a55498.jpg" _src="http://139.224.164.218/MSP/Upload/News/CN/2016-12-26-084b339fcb-4695-497c-ba33-1ad479a55498.jpg"/></p><p></p>
-                
+                <p><img src="http://139.224.164.218/MSP/Upload/News/CN/2016-12-26-08edea9e59-38e0-4456-be08-22c1c2d4d9d8.jpg" _src="http://139.224.164.218/MSP/Upload/News/CN/2016-12-26-08edea9e59-38e0-4456-be08-22c1c2d4d9d8.jpg"/></p >
+                <p><img src="http://139.224.164.218/MSP/Upload/News/CN/2016-12-26-08f9c193bc-0465-4706-8b8d-678fd2fb1578.jpg" _src="http://139.224.164.218/MSP/Upload/News/CN/2016-12-26-08f9c193bc-0465-4706-8b8d-678fd2fb1578.jpg"/></p >
+                <p><img src="http://139.224.164.218/MSP/Upload/News/CN/2016-12-26-08cc6f283a-5c24-471b-97e9-c871358a266d.jpg" _src="http://139.224.164.218/MSP/Upload/News/CN/2016-12-26-08cc6f283a-5c24-471b-97e9-c871358a266d.jpg"/></p >
+                <p><img src="http://139.224.164.218/MSP/Upload/News/CN/2016-12-26-08a8200769-c2ca-48a2-b481-c1867ff6043f.jpg" _src="http://139.224.164.218/MSP/Upload/News/CN/2016-12-26-08a8200769-c2ca-48a2-b481-c1867ff6043f.jpg"/></p >
+                <p><img src="http://139.224.164.218/MSP/Upload/News/CN/2016-12-26-082e7a5c29-c8a0-4fdb-bcc9-f2c01da32dae.jpg" _src="http://139.224.164.218/MSP/Upload/News/CN/2016-12-26-082e7a5c29-c8a0-4fdb-bcc9-f2c01da32dae.jpg"/></p >
+                <p><img src="http://139.224.164.218/MSP/Upload/News/CN/2016-12-26-08718e06e5-a4b3-46fd-a0e4-397278b02ec5.jpg" _src="http://139.224.164.218/MSP/Upload/News/CN/2016-12-26-08718e06e5-a4b3-46fd-a0e4-397278b02ec5.jpg"/></p >
+                <p><img src="http://139.224.164.218/MSP/Upload/News/CN/2016-12-26-08630ccaf4-1545-4908-a471-af868ddb5fff.jpg" _src="http://139.224.164.218/MSP/Upload/News/CN/2016-12-26-08630ccaf4-1545-4908-a471-af868ddb5fff.jpg"/></p >
+                <p><img src="http://139.224.164.218/MSP/Upload/News/CN/2016-12-26-084b339fcb-4695-497c-ba33-1ad479a55498.jpg" _src="http://139.224.164.218/MSP/Upload/News/CN/2016-12-26-084b339fcb-4695-497c-ba33-1ad479a55498.jpg"/></p >
+                <p></p >
             </div>
         </section>
         

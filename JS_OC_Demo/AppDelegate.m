@@ -9,7 +9,8 @@
 #import "AppDelegate.h"
 #import "TestViewController.h"
 #import "ViewController.h"
-
+#import "Test1ViewController.h"
+#import "Test2ViewController.h"
 @interface AppDelegate ()
 
 @end

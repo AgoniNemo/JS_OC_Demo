@@ -11,6 +11,6 @@
 
 @protocol JSExportDelegate <JSExport>
 
--(void)run;
+-(void)run:(NSString *)string;
 
 @end

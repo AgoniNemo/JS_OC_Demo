@@ -83,7 +83,7 @@
     for(var i= 0;i<lis.length;i++){\
     var  list = lis[i];\
     list.addEventListener('click', function(){\
-    callBackObj.run();\
+    callBackObj.run(this.innerHTML);\
     });\
     };";
     
@@ -98,9 +98,9 @@
     
 }
 
--(void)run{
+-(void)run:(NSString *)string{
     
-    NSLog(@"%s",__func__);
+    NSLog(@"%@",string);
 }
 
 

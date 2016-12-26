@@ -18,6 +18,7 @@
 		BA1408231DE5B2780037B052 /* JS_OC_DemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1408221DE5B2780037B052 /* JS_OC_DemoTests.m */; };
 		BA14082E1DE5B2780037B052 /* JS_OC_DemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = BA14082D1DE5B2780037B052 /* JS_OC_DemoUITests.m */; };
 		BA14083C1DE5B2F40037B052 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = BA14083B1DE5B2F40037B052 /* index.html */; };
+		BA16BECC1E115B9500BA2DF8 /* test2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA16BECB1E115B9500BA2DF8 /* test2ViewController.m */; };
 		BA7519341DF7F79D0034A257 /* somescript.js in Resources */ = {isa = PBXBuildFile; fileRef = BA7519331DF7F79D0034A257 /* somescript.js */; };
 		BA8ABDAD1E10F9EF00289561 /* UrlViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA8ABDAC1E10F9EF00289561 /* UrlViewController.m */; };
 		BA8ABDAF1E10FA8700289561 /* ImageHtml.html in Resources */ = {isa = PBXBuildFile; fileRef = BA8ABDAE1E10FA8700289561 /* ImageHtml.html */; };
@@ -64,6 +65,8 @@
 		BA14082D1DE5B2780037B052 /* JS_OC_DemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JS_OC_DemoUITests.m; sourceTree = "<group>"; };
 		BA14082F1DE5B2780037B052 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BA14083B1DE5B2F40037B052 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
+		BA16BECA1E115B9500BA2DF8 /* test2ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = test2ViewController.h; sourceTree = "<group>"; };
+		BA16BECB1E115B9500BA2DF8 /* test2ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = test2ViewController.m; sourceTree = "<group>"; };
 		BA7519331DF7F79D0034A257 /* somescript.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = somescript.js; sourceTree = "<group>"; };
 		BA8ABDAB1E10F9EF00289561 /* UrlViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UrlViewController.h; sourceTree = "<group>"; };
 		BA8ABDAC1E10F9EF00289561 /* UrlViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UrlViewController.m; sourceTree = "<group>"; };
@@ -129,6 +132,8 @@
 				BA8ABDAC1E10F9EF00289561 /* UrlViewController.m */,
 				BA14080E1DE5B2780037B052 /* ViewController.h */,
 				BA14080F1DE5B2780037B052 /* ViewController.m */,
+				BA16BECA1E115B9500BA2DF8 /* test2ViewController.h */,
+				BA16BECB1E115B9500BA2DF8 /* test2ViewController.m */,
 				BA8ABDB01E10FB4A00289561 /* Test1ViewController.h */,
 				BA8ABDB11E10FB4A00289561 /* Test1ViewController.m */,
 				BA121E9A1DE9769900A45155 /* TestViewController.h */,
@@ -308,6 +313,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BA121EA11DE9994300A45155 /* ManObject.m in Sources */,
+				BA16BECC1E115B9500BA2DF8 /* test2ViewController.m in Sources */,
 				BA1408101DE5B2780037B052 /* ViewController.m in Sources */,
 				BA8ABDAD1E10F9EF00289561 /* UrlViewController.m in Sources */,
 				BA14080D1DE5B2780037B052 /* AppDelegate.m in Sources */,
