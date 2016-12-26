@@ -1,13 +1,13 @@
 //
-//  ColorView.h
+//  UrlViewController.h
 //  JS_OC_Demo
 //
-//  Created by Nemo on 2016/11/26.
+//  Created by Mjwon on 2016/12/26.
 //  Copyright © 2016年 Nemo. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface ColorView : UIView
+@interface UrlViewController : UIViewController
 
 @end

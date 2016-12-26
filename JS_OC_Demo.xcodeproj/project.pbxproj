@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		BA121E9C1DE9769900A45155 /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA121E9B1DE9769900A45155 /* TestViewController.m */; };
 		BA121EA11DE9994300A45155 /* ManObject.m in Sources */ = {isa = PBXBuildFile; fileRef = BA121EA01DE9994300A45155 /* ManObject.m */; };
-		BA121EA41DE9B9F000A45155 /* ColorView.m in Sources */ = {isa = PBXBuildFile; fileRef = BA121EA31DE9B9F000A45155 /* ColorView.m */; };
 		BA14080A1DE5B2780037B052 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1408091DE5B2780037B052 /* main.m */; };
 		BA14080D1DE5B2780037B052 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BA14080C1DE5B2780037B052 /* AppDelegate.m */; };
 		BA1408101DE5B2780037B052 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA14080F1DE5B2780037B052 /* ViewController.m */; };
@@ -20,6 +19,9 @@
 		BA14082E1DE5B2780037B052 /* JS_OC_DemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = BA14082D1DE5B2780037B052 /* JS_OC_DemoUITests.m */; };
 		BA14083C1DE5B2F40037B052 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = BA14083B1DE5B2F40037B052 /* index.html */; };
 		BA7519341DF7F79D0034A257 /* somescript.js in Resources */ = {isa = PBXBuildFile; fileRef = BA7519331DF7F79D0034A257 /* somescript.js */; };
+		BA8ABDAD1E10F9EF00289561 /* UrlViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA8ABDAC1E10F9EF00289561 /* UrlViewController.m */; };
+		BA8ABDAF1E10FA8700289561 /* ImageHtml.html in Resources */ = {isa = PBXBuildFile; fileRef = BA8ABDAE1E10FA8700289561 /* ImageHtml.html */; };
+		BA8ABDB21E10FB4A00289561 /* Test1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA8ABDB11E10FB4A00289561 /* Test1ViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,8 +47,6 @@
 		BA121E9E1DE9990300A45155 /* JSExportDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSExportDelegate.h; sourceTree = "<group>"; };
 		BA121E9F1DE9994300A45155 /* ManObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManObject.h; sourceTree = "<group>"; };
 		BA121EA01DE9994300A45155 /* ManObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManObject.m; sourceTree = "<group>"; };
-		BA121EA21DE9B9F000A45155 /* ColorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorView.h; sourceTree = "<group>"; };
-		BA121EA31DE9B9F000A45155 /* ColorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorView.m; sourceTree = "<group>"; };
 		BA1408051DE5B2780037B052 /* JS_OC_Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JS_OC_Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA1408091DE5B2780037B052 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		BA14080B1DE5B2780037B052 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -65,6 +65,11 @@
 		BA14082F1DE5B2780037B052 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BA14083B1DE5B2F40037B052 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
 		BA7519331DF7F79D0034A257 /* somescript.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = somescript.js; sourceTree = "<group>"; };
+		BA8ABDAB1E10F9EF00289561 /* UrlViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UrlViewController.h; sourceTree = "<group>"; };
+		BA8ABDAC1E10F9EF00289561 /* UrlViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UrlViewController.m; sourceTree = "<group>"; };
+		BA8ABDAE1E10FA8700289561 /* ImageHtml.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = ImageHtml.html; sourceTree = "<group>"; };
+		BA8ABDB01E10FB4A00289561 /* Test1ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Test1ViewController.h; sourceTree = "<group>"; };
+		BA8ABDB11E10FB4A00289561 /* Test1ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Test1ViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,13 +121,16 @@
 			isa = PBXGroup;
 			children = (
 				BA14083B1DE5B2F40037B052 /* index.html */,
+				BA8ABDAE1E10FA8700289561 /* ImageHtml.html */,
 				BA7519331DF7F79D0034A257 /* somescript.js */,
 				BA14080B1DE5B2780037B052 /* AppDelegate.h */,
 				BA14080C1DE5B2780037B052 /* AppDelegate.m */,
+				BA8ABDAB1E10F9EF00289561 /* UrlViewController.h */,
+				BA8ABDAC1E10F9EF00289561 /* UrlViewController.m */,
 				BA14080E1DE5B2780037B052 /* ViewController.h */,
 				BA14080F1DE5B2780037B052 /* ViewController.m */,
-				BA121EA21DE9B9F000A45155 /* ColorView.h */,
-				BA121EA31DE9B9F000A45155 /* ColorView.m */,
+				BA8ABDB01E10FB4A00289561 /* Test1ViewController.h */,
+				BA8ABDB11E10FB4A00289561 /* Test1ViewController.m */,
 				BA121E9A1DE9769900A45155 /* TestViewController.h */,
 				BA121E9B1DE9769900A45155 /* TestViewController.m */,
 				BA121E9E1DE9990300A45155 /* JSExportDelegate.h */,
@@ -274,6 +282,7 @@
 				BA7519341DF7F79D0034A257 /* somescript.js in Resources */,
 				BA1408151DE5B2780037B052 /* Assets.xcassets in Resources */,
 				BA1408131DE5B2780037B052 /* Main.storyboard in Resources */,
+				BA8ABDAF1E10FA8700289561 /* ImageHtml.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,8 +309,9 @@
 			files = (
 				BA121EA11DE9994300A45155 /* ManObject.m in Sources */,
 				BA1408101DE5B2780037B052 /* ViewController.m in Sources */,
-				BA121EA41DE9B9F000A45155 /* ColorView.m in Sources */,
+				BA8ABDAD1E10F9EF00289561 /* UrlViewController.m in Sources */,
 				BA14080D1DE5B2780037B052 /* AppDelegate.m in Sources */,
+				BA8ABDB21E10FB4A00289561 /* Test1ViewController.m in Sources */,
 				BA121E9C1DE9769900A45155 /* TestViewController.m in Sources */,
 				BA14080A1DE5B2780037B052 /* main.m in Sources */,
 			);

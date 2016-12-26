@@ -1,58 +1,55 @@
 //
-//  TestViewController.m
+//  Test1ViewController.m
 //  JS_OC_Demo
 //
-//  Created by Nemo on 2016/11/26.
+//  Created by Mjwon on 2016/12/26.
 //  Copyright © 2016年 Nemo. All rights reserved.
 //
 
-#import "TestViewController.h"
+#import "Test1ViewController.h"
 #import <JavaScriptCore/JavaScriptCore.h>
-#import "ManObject.h"
 #import "JSExportDelegate.h"
 
-@interface TestViewController ()<UIWebViewDelegate,JSExportDelegate>
-
-@property (nonatomic,strong) UIWebView *webView;
+@interface Test1ViewController ()<UIWebViewDelegate,JSExportDelegate>
 
 @end
 
-@implementation TestViewController
+@implementation Test1ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     
-    _webView = [[UIWebView alloc] initWithFrame:self.view.bounds];
-    _webView.delegate = self;
+    UIWebView *webView = [[UIWebView alloc] initWithFrame:self.view.bounds];
+    webView.delegate = self;
     
     NSString * htmlPath = [[NSBundle mainBundle] pathForResource:@"index"
                                                           ofType:@"html"];
     
     NSURL *rul = [NSURL fileURLWithPath:htmlPath];
     NSURLRequest *request = [NSURLRequest requestWithURL:rul];
-    [_webView loadRequest:request];
-    [self.view addSubview:_webView];
-
+    [webView loadRequest:request];
+    [self.view addSubview:webView];
+    
     /**
      * 通过协议去调js
      
      JSContext *context = [self.webView valueForKeyPath:@"documentView.webView.mainFrame.javaScriptContext"];
      
      ManObject *m = [[ManObject alloc] init];
-    
-    context[@"ManObject"] = m;
-    [context evaluateScript:@"ManObject.run()"];
-    
-    context[@"log"] = ^{
-        NSArray *args = [JSContext currentArguments];
-        for (JSValue *jsVal in args) {
-            NSLog(@"js:%@", jsVal);
-        }
-        
-    };
-    
-    [context evaluateScript:@"log('hello,i am js side')"];*/
+     
+     context[@"ManObject"] = m;
+     [context evaluateScript:@"ManObject.run()"];
+     
+     context[@"log"] = ^{
+     NSArray *args = [JSContext currentArguments];
+     for (JSValue *jsVal in args) {
+     NSLog(@"js:%@", jsVal);
+     }
+     
+     };
+     
+     [context evaluateScript:@"log('hello,i am js side')"];*/
 }
 
 
@@ -67,7 +64,6 @@
         NSLog(@"error: %@", value);
     }];
     
-    
     /**
      // 下面的代码移除了按钮原先绑定的事件回调重新绑定返回上一个视图控制器的代码
      NSString *code =
@@ -77,7 +73,7 @@
      "   callBackObj.letsGoBack();"
      "});";
      */
-
+    
 #warning 一定要定义一个协议
     
     context[@"callBackObj"] = self;
@@ -103,7 +99,7 @@
 }
 
 -(void)run{
-
+    
     NSLog(@"%s",__func__);
 }
 
