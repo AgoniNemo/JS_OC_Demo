@@ -17,9 +17,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self createWebView];
+//    [self createWebView];
     
-//    [self createWebViewForUrl:@"https://www.baidu.com/"];
+    [self createWebViewForUrl:@"http://192.168.31.27:82/#!/cb"];
 }
 
 -(void)createWebViewForUrl:(NSString *)url{
@@ -59,10 +59,21 @@
     
     NSLog(@"%@",allHtml);
     
-    [self addScriptForWebView:webView];
-    
+//    [self addScriptForWebView:webView];
+    [self injectionjsWithWebView:webView];
 }
+-(void)injectionjsWithWebView:(UIWebView *)webView{
 
+    NSString *injectionJSString = @"function onlick(){\
+    alert('ddddd');\
+    };";
+    
+    [webView stringByEvaluatingJavaScriptFromString:injectionJSString];
+    
+    [webView stringByEvaluatingJavaScriptFromString:@"onlick()"];
+    
+    [webView stringByEvaluatingJavaScriptFromString:@"this.IosORandroid.iosORandroid.responseCallback"];
+}
 -(void)addScriptForWebView:(UIWebView *)webView{
     
     NSString *injectionJSString = @"var s = document.createElement('script');"

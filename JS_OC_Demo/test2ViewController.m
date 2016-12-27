@@ -8,8 +8,9 @@
 
 #import "test2ViewController.h"
 #import <JavaScriptCore/JavaScriptCore.h>
+#import "JSExportDelegate.h"
 
-@interface test2ViewController ()<UIWebViewDelegate>
+@interface test2ViewController ()<UIWebViewDelegate,JSExportDelegate>
 
 @end
 
@@ -43,13 +44,26 @@
     NSLog(@"%@",allHtml);
      */
     
+    [self injectionjsWithWebView:webView];
     
-    [self addClickActionForWebView:webView];
+//    [self addClickActionForWebView:webView];
 }
 
 -(void)addClickActionForWebView:(UIWebView *)webView{
     
-    NSString *jsString =@"function addOnlick(){\
+    NSString *jsString = @"function addOnlick(){\
+    var objs = document.getElementsByClassName(\"news-container\")[0].childNodes;\
+    for(var i=0;i<objs.length;i++){\
+        if(i % 2 != 0){\
+            console.log(objs[i]);\
+            objs[i].childNodes[0].onclick = function () {\
+                alert(this.currentSrc);\
+            }\
+        }\
+    };\
+    };";
+    
+//    NSString *jsString =@"function addOnlick(){\
     var objs = document.getElementsByClassName(\"news-container\");\
     for(var i=0;i<objs.length;i++){\
     var obs = objs[i].childNodes;\
@@ -74,7 +88,7 @@
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType{
     //将url转换为string
     NSString *requestString = [[request URL] absoluteString];
-        NSLog(@"requestString is %@",requestString);
+//        NSLog(@"requestString is %@",requestString);
     
     // 判断url内容是否以包含字符.myweb:click:
     if ([requestString rangeOfString:@".myweb:click:"].location != NSNotFound) {
@@ -87,7 +101,7 @@
     }
     return YES;
 }
--(void)addJS:(UIWebView *)webView{
+-(void)injectionjsWithWebView:(UIWebView *)webView{
 
     // 通过UIWebView获得网页中的JavaScript执行环境
     JSContext *context = [webView valueForKeyPath:
@@ -100,6 +114,19 @@
     context[@"callBackObj"] = self;
     
 #warning 一定要定义一个协议
+    NSString *jsString = @"function addOnlick(){\
+    var objs = document.getElementsByClassName(\"news-container\")[0].childNodes;\
+    for(var i=0;i<objs.length;i++){\
+    if(i % 2 != 0){\
+    console.log(objs[i]);\
+    objs[i].childNodes[0].onclick = function () {\
+    alert(this.currentSrc);\
+    callBackObj.run();\
+    }\
+    }\
+    };\
+    };";
+    
     NSString *js = @"\
     var objs = document.getElementsByClassName(\"news-container\");\
     for(var i=0;i<objs.length;i++){\
@@ -107,24 +134,24 @@
     console.log(obs);\
     for (var j = 0;j < obs.length;j++){\
     if (j %2 != 0){\
+    alert(obs[j])\
     var ob = obs[j].childNodes[0];\
-    alert(ob.currentSrc);\
-    ob.onclick = function () {\
+    obs[j].childNodes[0].onclick = function () {\
     alert(this.currentSrc + \"这是一个点\");\
-    callBackObj.run(this.innerHTML);\
+    callBackObj.run();\
     }\
     }\
     }\
     };";
     
     
-    [context evaluateScript:js];
+    [context evaluateScript:jsString];
 
 }
 
--(void)run:(NSString *)string{
-    
-    NSLog(@"%@",string);
+-(void)run{
+
+    NSLog(@"%s",__func__);
 }
 
 

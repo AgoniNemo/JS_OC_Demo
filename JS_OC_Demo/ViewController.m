@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "test2ViewController.h"
 #import "Test1ViewController.h"
+#import "UrlViewController.h"
 
 @interface ViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -55,6 +56,10 @@
         
         [self.navigationController pushViewController:vc animated:YES];
 
+    }else if (indexPath.row == 2){
+        UrlViewController *vc = [[UrlViewController alloc] init];
+        
+        [self.navigationController pushViewController:vc animated:YES];
     }
     
 }
@@ -62,7 +67,7 @@
 -(NSMutableArray *)dataSorce
 {
     if (_dataSorce == nil) {
-        _dataSorce = [NSMutableArray arrayWithArray:@[@"url方式",@"非Url",@"非Url"]];
+        _dataSorce = [NSMutableArray arrayWithArray:@[@"JSContext方式",@"Url方式",@"非Url"]];
     }
     return _dataSorce;
 }
