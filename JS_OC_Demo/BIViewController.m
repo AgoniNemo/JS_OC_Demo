@@ -40,6 +40,7 @@
 
     // 通过UIWebView获得网页中的JavaScript执行环境
     JSContext *context = [_webView valueForKeyPath:@"documentView.webView.mainFrame.javaScriptContext"];
+    
     // 设置处理异常的block回调
     [context setExceptionHandler:^(JSContext *ctx, JSValue *value) {
         NSLog(@"error: %@", value);
@@ -63,7 +64,7 @@
     if (is) {
         _webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, SCREENWIDTH, SCREENHEIGHT)];
         _webView.delegate = self;
-        [_webView loadRequest:[self isLocal:NO]];
+        [_webView loadRequest:[self isLocal:YES]];
         
         [self.view addSubview:_webView];
     }else{
