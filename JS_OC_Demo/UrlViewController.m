@@ -9,6 +9,10 @@
 #import "UrlViewController.h"
 
 @interface UrlViewController ()<UIWebViewDelegate>
+{
+    BOOL b;
+}
+@property (nonatomic ,strong) UIWebView *webView;
 
 @end
 
@@ -20,17 +24,48 @@
 //    [self createWebView];
     
     [self createWebViewForUrl:@"http://192.168.31.27:82/#!/cb"];
+    
+    [self createRightBar];
 }
+
+-(void)createRightBar{
+
+    UIButton *rightbtn = [UIButton buttonWithType:UIButtonTypeSystem];
+    rightbtn.frame = CGRectMake(0, 0, 60, 23);
+    [rightbtn setTitle:@"点击" forState:UIControlStateNormal];
+    [rightbtn addTarget:self action:@selector(rightAction) forControlEvents:UIControlEventTouchUpInside];
+    [rightbtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:rightbtn];
+    self.navigationItem.rightBarButtonItem = rightItem;
+}
+-(void)rightAction{
+    
+    NSLog(@"%s",__func__);
+    
+    /**
+     global.iosORandroid = {
+         setAccessToken:function(accessToken){
+         console.log(accessToken)
+        }
+     }
+     */
+    
+    NSString *rul = [self.webView stringByEvaluatingJavaScriptFromString:@"iosORandroid.setAccessToken(\"333333\")"];
+    
+    NSLog(@"%@",rul);
+}
+
+
 
 -(void)createWebViewForUrl:(NSString *)url{
     
-    UIWebView *webView = [[UIWebView alloc] initWithFrame:self.view.bounds];
-    webView.delegate = self;
+    self.webView = [[UIWebView alloc] initWithFrame:self.view.bounds];
+    self.webView.delegate = self;
     NSURL *rul = [NSURL URLWithString:url];
     NSURLRequest *request = [NSURLRequest requestWithURL:rul];
     
-    [webView loadRequest:request];
-    [self.view addSubview:webView];
+    [self.webView loadRequest:request];
+    [self.view addSubview:self.webView];
     
 }
 
@@ -47,20 +82,35 @@
     [self.view addSubview:webView];
     
 }
+
+-(void)webViewDidStartLoad:(UIWebView *)webView
+{
+    
+    NSLog(@"%s",__func__);
+    
+    [webView stringByEvaluatingJavaScriptFromString:@"iosORandroid.setAccessToken(\"2222222\")"];
+}
 -(void)webViewDidFinishLoad:(UIWebView *)webView
 {
     /**
      NSString *jsString = @"<script>var lis = document.getElementsByClassName(\"list-link\");for (var i = 0; i < lis.length; i++) {lis[i].addEventListener('click', function(){alert(this.innerHTML);});}</script>";
      */
+//    sleep(5);
     
-    NSString *jsToGetHTMLSource = @"document.documentElement.innerHTML";
+    NSString *result = [webView stringByEvaluatingJavaScriptFromString:@"iosORandroid.setAccessToken(\"111111\")"];
     
-    NSString *allHtml = [webView stringByEvaluatingJavaScriptFromString:jsToGetHTMLSource];
+    NSLog(@"%@",result);
     
-    NSLog(@"%@",allHtml);
+
+    
+//    NSString *jsToGetHTMLSource = @"document.documentElement.innerHTML";
+//    
+//    NSString *allHtml = [webView stringByEvaluatingJavaScriptFromString:jsToGetHTMLSource];
+//    
+//    NSLog(@"%@",allHtml);
     
 //    [self addScriptForWebView:webView];
-    [self injectionjsWithWebView:webView];
+//    [self injectionjsWithWebView:webView];
 }
 -(void)injectionjsWithWebView:(UIWebView *)webView{
 
@@ -87,6 +137,7 @@
     "});"
     "}"
     "};";
+    
     
     [webView stringByEvaluatingJavaScriptFromString:injectionJSString];
     

@@ -11,6 +11,8 @@
 #import "ViewController.h"
 #import "Test1ViewController.h"
 #import "Test2ViewController.h"
+#import "BIViewController.h"
+
 @interface AppDelegate ()
 
 @end
@@ -20,7 +22,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
-    ViewController *vc = [[ViewController alloc] init];
+    BIViewController *vc = [[BIViewController alloc] init];
     
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
     

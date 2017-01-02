@@ -98,9 +98,9 @@
     
 }
 
--(void)run:(NSString *)string{
+-(void)run{
     
-    NSLog(@"%@",string);
+    NSLog(@"%s",__func__);
 }
 
 

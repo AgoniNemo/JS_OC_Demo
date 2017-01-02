@@ -67,7 +67,7 @@
 -(NSMutableArray *)dataSorce
 {
     if (_dataSorce == nil) {
-        _dataSorce = [NSMutableArray arrayWithArray:@[@"JSContext方式",@"Url方式",@"非Url"]];
+        _dataSorce = [NSMutableArray arrayWithArray:@[@"JSContext方式",@"Url方式",@"Url"]];
     }
     return _dataSorce;
 }

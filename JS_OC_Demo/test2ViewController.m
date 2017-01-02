@@ -35,7 +35,6 @@
 -(void)webViewDidFinishLoad:(UIWebView *)webView
 {
     
-    
     /**
     NSString *jsToGetHTMLSource = @"document.documentElement.innerHTML";
     
@@ -44,11 +43,24 @@
     NSLog(@"%@",allHtml);
      */
     
-    [self injectionjsWithWebView:webView];
+//    [self injectionjsWithWebView:webView];
     
 //    [self addClickActionForWebView:webView];
+    
+    [self getTitleForWebView:webView];
 }
+-(void)getTitleForWebView:(UIWebView *)webView{
 
+    NSString *js = @"function getTitle(){\
+    return document.getElementsByTagName(\"title\")[0].text;\
+    }";
+    
+    [webView stringByEvaluatingJavaScriptFromString:js];//注入js方法
+    
+    NSString *result = [webView stringByEvaluatingJavaScriptFromString:@"getTitle()"];
+    self.title = result;
+    NSLog(@"getTitle:%@",result);
+}
 -(void)addClickActionForWebView:(UIWebView *)webView{
     
     NSString *jsString = @"function addOnlick(){\
@@ -58,11 +70,12 @@
             console.log(objs[i]);\
             objs[i].childNodes[0].onclick = function () {\
                 alert(this.currentSrc);\
+                return this.currentSrc;\
             }\
         }\
     };\
     };";
-    
+
 //    NSString *jsString =@"function addOnlick(){\
     var objs = document.getElementsByClassName(\"news-container\");\
     for(var i=0;i<objs.length;i++){\
@@ -82,7 +95,9 @@
     };";
     [webView stringByEvaluatingJavaScriptFromString:jsString];//注入js方法
     
-    [webView stringByEvaluatingJavaScriptFromString:@"addOnlick()"];
+    NSString *url = [webView stringByEvaluatingJavaScriptFromString:@"addOnlick()"];
+    
+    NSLog(@"%@",url);
     
 }
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType{
