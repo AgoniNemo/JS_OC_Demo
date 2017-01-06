@@ -22,6 +22,10 @@
 		BA68C6D51E1A2DE00060FB5D /* BIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA68C6D41E1A2DE00060FB5D /* BIViewController.m */; };
 		BA68C6D91E1A2E2B0060FB5D /* WeakScriptMessageDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BA68C6D81E1A2E2B0060FB5D /* WeakScriptMessageDelegate.m */; };
 		BA68C6DB1E1A3F4D0060FB5D /* text.html in Resources */ = {isa = PBXBuildFile; fileRef = BA68C6DA1E1A3F4D0060FB5D /* text.html */; };
+		BA70DB531E1CA53000E61D83 /* world.js in Resources */ = {isa = PBXBuildFile; fileRef = BA70DB521E1CA53000E61D83 /* world.js */; };
+		BA70DB561E1CA58E00E61D83 /* WorldViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA70DB551E1CA58E00E61D83 /* WorldViewController.m */; };
+		BA70DB5C1E1CDF3000E61D83 /* index.js in Resources */ = {isa = PBXBuildFile; fileRef = BA70DB5B1E1CDF3000E61D83 /* index.js */; };
+		BA70DB5E1E1CEFA800E61D83 /* text.js in Resources */ = {isa = PBXBuildFile; fileRef = BA70DB5D1E1CEFA800E61D83 /* text.js */; };
 		BA7519341DF7F79D0034A257 /* somescript.js in Resources */ = {isa = PBXBuildFile; fileRef = BA7519331DF7F79D0034A257 /* somescript.js */; };
 		BA8ABDAD1E10F9EF00289561 /* UrlViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA8ABDAC1E10F9EF00289561 /* UrlViewController.m */; };
 		BA8ABDAF1E10FA8700289561 /* ImageHtml.html in Resources */ = {isa = PBXBuildFile; fileRef = BA8ABDAE1E10FA8700289561 /* ImageHtml.html */; };
@@ -75,6 +79,11 @@
 		BA68C6D71E1A2E2B0060FB5D /* WeakScriptMessageDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeakScriptMessageDelegate.h; sourceTree = "<group>"; };
 		BA68C6D81E1A2E2B0060FB5D /* WeakScriptMessageDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeakScriptMessageDelegate.m; sourceTree = "<group>"; };
 		BA68C6DA1E1A3F4D0060FB5D /* text.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = text.html; sourceTree = "<group>"; };
+		BA70DB521E1CA53000E61D83 /* world.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = world.js; sourceTree = "<group>"; };
+		BA70DB541E1CA58E00E61D83 /* WorldViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorldViewController.h; sourceTree = "<group>"; };
+		BA70DB551E1CA58E00E61D83 /* WorldViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorldViewController.m; sourceTree = "<group>"; };
+		BA70DB5B1E1CDF3000E61D83 /* index.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = index.js; sourceTree = "<group>"; };
+		BA70DB5D1E1CEFA800E61D83 /* text.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = text.js; sourceTree = "<group>"; };
 		BA7519331DF7F79D0034A257 /* somescript.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = somescript.js; sourceTree = "<group>"; };
 		BA8ABDAB1E10F9EF00289561 /* UrlViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UrlViewController.h; sourceTree = "<group>"; };
 		BA8ABDAC1E10F9EF00289561 /* UrlViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UrlViewController.m; sourceTree = "<group>"; };
@@ -135,9 +144,14 @@
 				BA14083B1DE5B2F40037B052 /* index.html */,
 				BA8ABDAE1E10FA8700289561 /* ImageHtml.html */,
 				BA68C6DA1E1A3F4D0060FB5D /* text.html */,
+				BA70DB5B1E1CDF3000E61D83 /* index.js */,
+				BA70DB5D1E1CEFA800E61D83 /* text.js */,
+				BA70DB521E1CA53000E61D83 /* world.js */,
 				BA7519331DF7F79D0034A257 /* somescript.js */,
 				BA14080B1DE5B2780037B052 /* AppDelegate.h */,
 				BA14080C1DE5B2780037B052 /* AppDelegate.m */,
+				BA70DB541E1CA58E00E61D83 /* WorldViewController.h */,
+				BA70DB551E1CA58E00E61D83 /* WorldViewController.m */,
 				BA68C6D31E1A2DE00060FB5D /* BIViewController.h */,
 				BA68C6D41E1A2DE00060FB5D /* BIViewController.m */,
 				BA8ABDAB1E10F9EF00289561 /* UrlViewController.h */,
@@ -303,9 +317,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA70DB5C1E1CDF3000E61D83 /* index.js in Resources */,
 				BA1408181DE5B2780037B052 /* LaunchScreen.storyboard in Resources */,
 				BA14083C1DE5B2F40037B052 /* index.html in Resources */,
 				BA7519341DF7F79D0034A257 /* somescript.js in Resources */,
+				BA70DB531E1CA53000E61D83 /* world.js in Resources */,
+				BA70DB5E1E1CEFA800E61D83 /* text.js in Resources */,
 				BA1408151DE5B2780037B052 /* Assets.xcassets in Resources */,
 				BA68C6DB1E1A3F4D0060FB5D /* text.html in Resources */,
 				BA1408131DE5B2780037B052 /* Main.storyboard in Resources */,
@@ -342,6 +359,7 @@
 				BA14080D1DE5B2780037B052 /* AppDelegate.m in Sources */,
 				BA8ABDB21E10FB4A00289561 /* Test1ViewController.m in Sources */,
 				BA121E9C1DE9769900A45155 /* TestViewController.m in Sources */,
+				BA70DB561E1CA58E00E61D83 /* WorldViewController.m in Sources */,
 				BA14080A1DE5B2780037B052 /* main.m in Sources */,
 				BA68C6D91E1A2E2B0060FB5D /* WeakScriptMessageDelegate.m in Sources */,
 			);

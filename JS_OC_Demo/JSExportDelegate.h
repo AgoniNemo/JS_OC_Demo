@@ -11,6 +11,11 @@
 
 @protocol JSExportDelegate <JSExport>
 
--(void)run;
 -(NSString *)getAccessToken;
+-(NSString *)getPath;
+
+@optional;
+-(void)run;
+
+
 @end

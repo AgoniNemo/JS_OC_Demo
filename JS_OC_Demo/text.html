@@ -1,27 +1,19 @@
-<!doctype html>
 <html>
     <head>
-        <meta charset="utf-8">
-            <meta http-equiv="x-ua-compatible" content="ie=edge">
-                
-                <meta name="description" content="">
-                    <meta name="viewport" content="width=device-width, initial-scale=1">
-                            </head>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    </head>
     <script>
         var string = iOS.getAccessToken();
         alert(string);
-        iOS.run();
+        </script>
+    <script>
+        var path = iOS.getPath();
+        var js = "<script src=" + path + "><\/script>";
+        document.write(js);
         </script>
     <body>
-        
         <script>
-            alert("xixixixi");
-            
-            function click(text){
-                alert(text);
-                
-            }
-        </script>
-        
+            click("这是加载的js!");
+            </script>
     </body>
 </html>

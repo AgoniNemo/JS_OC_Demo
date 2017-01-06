@@ -12,6 +12,7 @@
 #import "Test1ViewController.h"
 #import "Test2ViewController.h"
 #import "BIViewController.h"
+#import "WorldViewController.h"
 
 @interface AppDelegate ()
 
@@ -22,7 +23,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
-    BIViewController *vc = [[BIViewController alloc] init];
+    WorldViewController *vc = [[WorldViewController alloc] init];
     
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
     
