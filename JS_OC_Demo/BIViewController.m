@@ -11,16 +11,19 @@
 #import <WebKit/WebKit.h>
 #import <JavaScriptCore/JavaScriptCore.h>
 #import "WeakScriptMessageDelegate.h"
-#import "JSExportDelegate.h"
+#import "ManObject.h"
+
 
 #define SCREENWIDTH  [UIScreen mainScreen].bounds.size.width
 #define SCREENHEIGHT [UIScreen mainScreen].bounds.size.height
 #define SCREEN [UIScreen mainScreen].bounds
 
-@interface BIViewController ()<UIWebViewDelegate,WKUIDelegate,WKNavigationDelegate,WKScriptMessageHandler,JSExportDelegate>
+@interface BIViewController ()<UIWebViewDelegate,WKUIDelegate,WKNavigationDelegate,WKScriptMessageHandler>
 
 @property (nonatomic ,strong) UIWebView *webView;
 @property (nonatomic ,strong) WKWebView *webview;
+
+@property (nonatomic ,assign) ManObject *obj;
 
 @end
 
@@ -30,11 +33,11 @@
     
     [super viewDidLoad];
     
-    [self isUIWebView:YES];
+    [self isUIWebView:NO];
     
     [self createItem];
     
-    [self createJSContext];
+    self.view.backgroundColor = [UIColor whiteColor];
 }
 -(void)createJSContext{
 
@@ -45,18 +48,13 @@
     [context setExceptionHandler:^(JSContext *ctx, JSValue *value) {
         NSLog(@"error: %@", value);
     }];
-    
-    context[@"iOS"] = self;
+    ManObject *man = [[ManObject alloc] init];
+    context[@"iOS"] = man;
     
 }
-
 -(NSString *)getAccessToken
 {
-    return @"fejislajflajifjeilsanf";
-}
--(void)run
-{
-    NSLog(@"%s",__func__);
+    return @"getAccessToken  getAccessToken";
 }
 
 -(void)isUIWebView:(BOOL)is{
@@ -64,27 +62,42 @@
     if (is) {
         _webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, SCREENWIDTH, SCREENHEIGHT)];
         _webView.delegate = self;
-        [_webView loadRequest:[self isLocal:YES]];
+        [_webView loadRequest:[self isLocal:YES isUIWebView:is]];
         
         [self.view addSubview:_webView];
+        [self createJSContext];
     }else{
-    
-        _webview = [[WKWebView alloc] initWithFrame:CGRectMake(0, 0, SCREENWIDTH, SCREENHEIGHT-64)];
+
+        /**
+         等同
+         <script>
+         window.webkit.messageHandlers.iOS.postMessage(null);
+         </script>
+         */
+        NSString *jScript = @"var spt = document.createElement('script'); \
+        spt.value = window.webkit.messageHandlers.iOS.postMessage(null); \
+        var head = document.getElementsByTagName('head')[0];\
+        head.appendChild(spt);";
+        WKUserScript *wkUScript = [[NSClassFromString(@"WKUserScript") alloc] initWithSource:jScript injectionTime:WKUserScriptInjectionTimeAtDocumentEnd forMainFrameOnly:NO];
+        WKWebViewConfiguration *config = [[WKWebViewConfiguration alloc] init];
+        [config.userContentController addUserScript:wkUScript];
+        
+        _webview = [[WKWebView alloc] initWithFrame:CGRectMake(0, 0, SCREENWIDTH, SCREENHEIGHT-64) configuration:config];
         _webview.UIDelegate = self;
         _webview.navigationDelegate = self;
-        [_webview loadRequest:[self isLocal:YES]];
+        [_webview loadRequest:[self isLocal:YES isUIWebView:is]];
         
-        [[_webview configuration].userContentController addScriptMessageHandler:[[WeakScriptMessageDelegate alloc] initWithDelegate:self] name:@"AppModel"];
+        [[_webview configuration].userContentController addScriptMessageHandler:[[WeakScriptMessageDelegate alloc] initWithDelegate:self] name:@"iOS"];
         
-        [self.view addSubview:_webView];
+        [self.view addSubview:_webview];
     }
-    
 
 }
--(NSURLRequest *)isLocal:(BOOL)is{
+-(NSURLRequest *)isLocal:(BOOL)is isUIWebView:(BOOL)b{
     
     if (is) {
-        NSString * htmlPath = [[NSBundle mainBundle] pathForResource:@"text"ofType:@"html"];
+        NSString *resouce = b?@"text":@"WKWebView";
+        NSString * htmlPath = [[NSBundle mainBundle] pathForResource:resouce ofType:@"html"];
         NSURL *rul = [NSURL fileURLWithPath:htmlPath];
         return [NSURLRequest requestWithURL:rul];
     }else{
@@ -113,7 +126,7 @@
     
 //    [_webView goBack];
 
-//    [self.navigationController popViewControllerAnimated:YES];
+    [self.navigationController popViewControllerAnimated:YES];
     
 }
 
@@ -173,7 +186,14 @@
 
 - (void)webView:(WKWebView *)webView runJavaScriptAlertPanelWithMessage:(NSString *)message initiatedByFrame:(WKFrameInfo *)frame completionHandler:(void (^)(void))completionHandler{
     
-    NSLog(@"%@", message);   //js的alert框的message
+    NSLog(@"message：%@", message);   //js的alert框的message
+    
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提醒" message:message preferredStyle:UIAlertControllerStyleAlert];
+    [alert addAction:[UIAlertAction actionWithTitle:@"知道了" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        completionHandler();
+    }]];
+    
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 #pragma mark- WKNavigationDelegate
@@ -183,6 +203,13 @@
     NSLog(@"JS 调用了 %@ 方法，传回参数 %@",message.name,message.body);
     
     //如果需要回调，直接调用OC调用JS的方法
+    NSString *jsToGetHTMLSource = @"sendToken('kwkwkkwkwk')";
+    
+    [self.webview evaluateJavaScript:jsToGetHTMLSource completionHandler:^(id _Nullable string, NSError * _Nullable error) {
+        //js返回值
+        NSLog(@"%@  error:%@",string,error);
+    }];
+    
 }
 
 //开始
@@ -220,7 +247,19 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+- (void)dealloc{
+    
+    _webview.UIDelegate = nil;
+    _webview.navigationDelegate = nil;
+    [_webView loadHTMLString:@"" baseURL:nil];
+    [_webView stopLoading];
+    _webView = nil;
+    [[_webview configuration].userContentController removeScriptMessageHandlerForName:@"iOS"];
+    
+    [[NSURLCache sharedURLCache] removeAllCachedResponses];
+    
+    NSLog(@"我被释放了");
+}
 /*
 #pragma mark - Navigation
 

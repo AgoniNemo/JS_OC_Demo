@@ -23,7 +23,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
-    WorldViewController *vc = [[WorldViewController alloc] init];
+    ViewController *vc = [[ViewController alloc] init];
     
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
     

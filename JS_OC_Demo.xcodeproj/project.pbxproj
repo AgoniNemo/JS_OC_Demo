@@ -30,6 +30,8 @@
 		BA8ABDAD1E10F9EF00289561 /* UrlViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA8ABDAC1E10F9EF00289561 /* UrlViewController.m */; };
 		BA8ABDAF1E10FA8700289561 /* ImageHtml.html in Resources */ = {isa = PBXBuildFile; fileRef = BA8ABDAE1E10FA8700289561 /* ImageHtml.html */; };
 		BA8ABDB21E10FB4A00289561 /* Test1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA8ABDB11E10FB4A00289561 /* Test1ViewController.m */; };
+		BAA0220E1E2880F7008743DE /* WKWebView.html in Resources */ = {isa = PBXBuildFile; fileRef = BAA0220D1E2880F6008743DE /* WKWebView.html */; };
+		BAA022111E28CD46008743DE /* JSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAA022101E28CD46008743DE /* JSViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +92,9 @@
 		BA8ABDAE1E10FA8700289561 /* ImageHtml.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = ImageHtml.html; sourceTree = "<group>"; };
 		BA8ABDB01E10FB4A00289561 /* Test1ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Test1ViewController.h; sourceTree = "<group>"; };
 		BA8ABDB11E10FB4A00289561 /* Test1ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Test1ViewController.m; sourceTree = "<group>"; };
+		BAA0220D1E2880F6008743DE /* WKWebView.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = WKWebView.html; sourceTree = "<group>"; };
+		BAA0220F1E28CD46008743DE /* JSViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSViewController.h; sourceTree = "<group>"; };
+		BAA022101E28CD46008743DE /* JSViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +149,7 @@
 				BA14083B1DE5B2F40037B052 /* index.html */,
 				BA8ABDAE1E10FA8700289561 /* ImageHtml.html */,
 				BA68C6DA1E1A3F4D0060FB5D /* text.html */,
+				BAA0220D1E2880F6008743DE /* WKWebView.html */,
 				BA70DB5B1E1CDF3000E61D83 /* index.js */,
 				BA70DB5D1E1CEFA800E61D83 /* text.js */,
 				BA70DB521E1CA53000E61D83 /* world.js */,
@@ -158,6 +164,8 @@
 				BA8ABDAC1E10F9EF00289561 /* UrlViewController.m */,
 				BA14080E1DE5B2780037B052 /* ViewController.h */,
 				BA14080F1DE5B2780037B052 /* ViewController.m */,
+				BAA0220F1E28CD46008743DE /* JSViewController.h */,
+				BAA022101E28CD46008743DE /* JSViewController.m */,
 				BA16BECA1E115B9500BA2DF8 /* test2ViewController.h */,
 				BA16BECB1E115B9500BA2DF8 /* test2ViewController.m */,
 				BA8ABDB01E10FB4A00289561 /* Test1ViewController.h */,
@@ -323,6 +331,7 @@
 				BA7519341DF7F79D0034A257 /* somescript.js in Resources */,
 				BA70DB531E1CA53000E61D83 /* world.js in Resources */,
 				BA70DB5E1E1CEFA800E61D83 /* text.js in Resources */,
+				BAA0220E1E2880F7008743DE /* WKWebView.html in Resources */,
 				BA1408151DE5B2780037B052 /* Assets.xcassets in Resources */,
 				BA68C6DB1E1A3F4D0060FB5D /* text.html in Resources */,
 				BA1408131DE5B2780037B052 /* Main.storyboard in Resources */,
@@ -352,6 +361,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BA121EA11DE9994300A45155 /* ManObject.m in Sources */,
+				BAA022111E28CD46008743DE /* JSViewController.m in Sources */,
 				BA16BECC1E115B9500BA2DF8 /* test2ViewController.m in Sources */,
 				BA1408101DE5B2780037B052 /* ViewController.m in Sources */,
 				BA68C6D51E1A2DE00060FB5D /* BIViewController.m in Sources */,
