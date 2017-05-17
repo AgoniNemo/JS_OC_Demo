@@ -12,7 +12,6 @@
 @protocol JSExportDelegate <JSExport>
 
 -(NSString *)getAccessToken;
--(NSString *)getPath;
 
 @optional;
 -(void)run;

@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "test3ViewController.h"
 #import "test2ViewController.h"
 #import "Test1ViewController.h"
 #import "UrlViewController.h"
@@ -69,6 +70,9 @@
     }else if (indexPath.row == 4){
         JSViewController *vc = [[JSViewController alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
+    }else if (indexPath.row == 5){
+        Test3ViewController *vc = [[Test3ViewController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
     }
     
 }
@@ -76,7 +80,7 @@
 -(NSMutableArray *)dataSorce
 {
     if (_dataSorce == nil) {
-        _dataSorce = [NSMutableArray arrayWithArray:@[@"JSContext方式",@"Url方式",@"Url",@"BIView",@"JSView"]];
+        _dataSorce = [NSMutableArray arrayWithArray:@[@"JSContext方式",@"Url方式",@"Url",@"BIView",@"JSView",@"Test3"]];
     }
     return _dataSorce;
 }

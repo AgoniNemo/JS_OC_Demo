@@ -25,7 +25,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
     _webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, SCREENWIDTH, SCREENHEIGHT)];
     _webView.delegate = self;
     [_webView loadRequest:[self isLocal:YES]];
@@ -37,7 +36,7 @@
 }
 -(NSURLRequest *)isLocal:(BOOL)b{
     
-    NSString *string = b?@"http://192.168.31.27:82/#!/keypoint":@"http://www.baidu.com";
+    NSString *string = b?@"http://192.168.31.27:8099/#!/keypoint":@"http://www.baidu.com";
     /**
      
      NSURLRequestUseProtocolCachePolicy
@@ -54,11 +53,19 @@
      
      */
     NSURL *url = [NSURL URLWithString:string];
-    return [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestReturnCacheDataDontLoad timeoutInterval:10];
+    return [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:10];
 }
 -(void)createJSContext{
     
+    // 通过UIWebView获得网页中的JavaScript执行环境
+    JSContext *context = [self.webView valueForKeyPath:@"documentView.webView.mainFrame.javaScriptContext"];
     
+    // 设置处理异常的block回调
+    [context setExceptionHandler:^(JSContext *ctx, JSValue *value) {
+        NSLog(@"error: %@", value);
+    }];
+    ManObject *man = [[ManObject alloc] init];
+    context[@"iOS"] = man;
     
 }
 
@@ -85,27 +92,18 @@
 }
 
 -(void)action{
-    [_webView stopLoading];
-    [_webView loadRequest:[self isLocal:YES]];
-//    [self.webView reload];
+
+//    [_webView loadRequest:[self isLocal:YES]];
+    
+    [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://192.168.31.27:82/#!/keypoint"]]];
 }
 
 #pragma mark - UIWebView
 
 -(void)webViewDidStartLoad:(UIWebView *)webView
 {
-    NSLog(@"%s",__func__);
-    
-    // 通过UIWebView获得网页中的JavaScript执行环境
-    JSContext *context = [webView valueForKeyPath:@"documentView.webView.mainFrame.javaScriptContext"];
-    
-    // 设置处理异常的block回调
-    [context setExceptionHandler:^(JSContext *ctx, JSValue *value) {
-        NSLog(@"error: %@", value);
-    }];
-    ManObject *man = [[ManObject alloc] init];
-    context[@"iOS"] = man;
 
+    NSLog(@"%s",__func__);
 }
 -(void)webViewDidFinishLoad:(UIWebView *)webView
 {
@@ -117,7 +115,7 @@
     
     NSString * address = request.URL.absoluteString;
     NSLog(@"URL:%@",address);
-
+    
     
     return YES;
 }
